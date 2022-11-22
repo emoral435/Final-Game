@@ -61,11 +61,25 @@ def scene1(x, y):
     draw_flower('red', 'skyblue', -50, -250)
     draw_flower('thistle', 'lavender', -244, -250)
     draw_outside_house()
+    screen.tracer(1)
     scene2()
 
 
 def scene2():
-    pass
+    stall(5, 1000)
+    screen.clear()
+    draw.clear()
+    screen.bgcolor('black')
+    text.penup()
+    text.color('white')
+    text.goto(0, 250)
+    text.write('Scene 2', False, align='center', font=('Arial', 20))
+    stall(1, 700)
+    screen.clear()
+    text.clear()
+    screen.bgcolor('#F0E68C')
+    draw_floor('black')
+    draw_exit()
 
 # this function draws a floor
 
@@ -199,9 +213,44 @@ def draw_tree(x, y):
         draw.cirlce(30, 55)
 
 
-def first_interaction():
+def draw_exit():
+    draw.penup()
+    draw.goto(200, 200)
+    draw.pencolor('red')
+    draw.pendown()
+    draw.fillcolor('white')
+    draw.setheading(90)
+    draw.begin_fill()
+    for i in range(2):
+        draw.forward(100)
+        draw.right(90)
+        draw.forward(200)
+        draw.right(90)
+    draw.end_fill()
+    text.goto(300, 212)
+    text.color('red')
+    text.write('Exit', False, align='center', font=('Arial', 50))
+    draw.penup()
+    draw.goto(500, 200)
+    draw.pendown()
+    draw.pencolor('black')
+    draw.fillcolor('brown')
+    draw.setheading(180)
+    draw.begin_fill()
+    for i in range(2):
+        draw.forward(400)
+        draw.left(90)
+        draw.forward(500)
+        draw.left(90)
+    draw.end_fill()
+    draw.shape('circle')
+    draw.color('black')
+    draw.penup()
+    draw.goto(450, 0)
+    draw.stamp()
+    draw.penup()
 
-    # MAIN
+# MAIN
 
 
 list = get_lines('lines.txt')
@@ -242,12 +291,14 @@ draw.penup()
 windowguy = turtle.Turtle()
 turtle.addshape('windowstick.gif')
 windowguy.shape('windowstick.gif')
+windowguy.hideturtle()
 windowguy.penup()
 
 # define the turtle object that swings
 swingguy = turtle.Turtle()
 turtle.addshape('swingguy.gif')
 swingguy.shape('swingguy.gif')
+swingguy.hideturtle()
 swingguy.penup()
 
 # add an event to the checkmark
