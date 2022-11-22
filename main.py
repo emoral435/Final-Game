@@ -31,23 +31,33 @@ def stall(speed, distance):
     tt.speed(speed)
     tt.forward(distance)
 
-# this is the function that starts the movie, starting with scene1
+# this shows the user chose the wrong choice!
 
+def redo(x, y):
+  xmark.hideturtle()
+  checkmark.hideturtle()
+  text.clear()
+  screen.bgcolor('skyblue')
+  text.write('To Bad! Redo the drawing!', False, align='center', font=('Arial', 20))
+  stall(1, 500)
+
+ # this is the function that starts the movie, starting with scene1
 
 def scene1(x, y):
-    checkmark.hideturtle()
-    text.clear()
-    text.write('Buckle up then!', False, align='center', font=('Arial', 20))
-    stall(1, 500)
-    screen.bgcolor('skyblue')
-    text.clear()
-    screen.tracer(0)
-    draw_floor('brown')
-    draw_fence()
-    draw_flower('yellow', 'green', -134, -250)
-    draw_flower('red', 'skyblue', -50, -250)
-    draw_flower('thistle', 'lavender', -244, -250)
-    draw_outside_house()
+  checkmark.hideturtle()
+  xmark.hideturtle()
+  text.clear()
+  text.write('Buckle up then!', False, align='center', font=('Arial', 20))
+  stall(1, 500)
+  screen.bgcolor('skyblue')
+  text.clear()
+  screen.tracer(0)
+  draw_floor('brown')
+  draw_fence()
+  draw_flower('yellow', 'green', -134, -250)
+  draw_flower('red', 'skyblue', -50, -250)
+  draw_flower('thistle', 'lavender', -244, -250)
+  draw_outside_house()
 
 # this function draws a floor
 
@@ -179,13 +189,6 @@ def draw_tree(x, y):
         draw.begin_fill()
         draw.forward(100)
         draw.cirlce(30, 55)
-        
-    
-    
-    
-    
-    
-    pass
 
 
 # MAIN
@@ -210,6 +213,13 @@ turtle.addshape('checkmark.gif')
 checkmark.shape('checkmark.gif')
 checkmark.penup()
 checkmark.goto(-250, 75)
+
+# define the xmark turtle 
+xmark = turtle.Turtle()
+turtle.addshape('xmark.gif')
+xmark.shape('xmark.gif')
+xmark.penup()
+xmark.goto(250, 75)
 
 # define the drawing turtle
 draw = turtle.Turtle()
