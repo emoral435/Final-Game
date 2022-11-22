@@ -167,7 +167,24 @@ def draw_outside_house():
     draw.end_fill()
 
 
-def draw_tree():
+def draw_tree(x, y):
+    draw.goto(x, y)
+    draw.fillcolor()
+    for i in range(4):
+        draw.begin_fill()
+        draw.forward(100)
+        draw.left(90)
+        draw.endfill()
+    for i in range(5): 
+        draw.begin_fill()
+        draw.forward(100)
+        draw.cirlce(30, 55)
+        
+    
+    
+    
+    
+    
     pass
 
 
