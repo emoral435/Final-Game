@@ -33,31 +33,39 @@ def stall(speed, distance):
 
 # this shows the user chose the wrong choice!
 
-def redo(x, y):
-  xmark.hideturtle()
-  checkmark.hideturtle()
-  text.clear()
-  screen.bgcolor('skyblue')
-  text.write('To Bad! Redo the drawing!', False, align='center', font=('Arial', 20))
-  stall(1, 500)
 
- # this is the function that starts the movie, starting with scene1
+def redo(x, y):
+    xmark.hideturtle()
+    checkmark.hideturtle()
+    text.clear()
+    screen.bgcolor('skyblue')
+    text.write('To Bad! Redo the drawing!', False,
+               align='center', font=('Arial', 20))
+    stall(1, 500)
+
+   # this is the function that starts the movie, starting with scene1
+
 
 def scene1(x, y):
-  checkmark.hideturtle()
-  xmark.hideturtle()
-  text.clear()
-  text.write('Buckle up then!', False, align='center', font=('Arial', 20))
-  stall(1, 500)
-  screen.bgcolor('skyblue')
-  text.clear()
-  screen.tracer(0)
-  draw_floor('brown')
-  draw_fence()
-  draw_flower('yellow', 'green', -134, -250)
-  draw_flower('red', 'skyblue', -50, -250)
-  draw_flower('thistle', 'lavender', -244, -250)
-  draw_outside_house()
+    checkmark.hideturtle()
+    xmark.hideturtle()
+    text.clear()
+    text.write('Buckle up then!', False, align='center', font=('Arial', 20))
+    stall(1, 500)
+    screen.bgcolor('skyblue')
+    text.clear()
+    screen.tracer(0)
+    draw_floor('brown')
+    draw_fence()
+    draw_flower('yellow', 'green', -134, -250)
+    draw_flower('red', 'skyblue', -50, -250)
+    draw_flower('thistle', 'lavender', -244, -250)
+    draw_outside_house()
+    scene2()
+
+
+def scene2():
+    pass
 
 # this function draws a floor
 
@@ -185,13 +193,16 @@ def draw_tree(x, y):
         draw.forward(100)
         draw.left(90)
         draw.endfill()
-    for i in range(5): 
+    for i in range(5):
         draw.begin_fill()
         draw.forward(100)
         draw.cirlce(30, 55)
 
 
-# MAIN
+def first_interaction():
+
+    # MAIN
+
 
 list = get_lines('lines.txt')
 
@@ -214,7 +225,7 @@ checkmark.shape('checkmark.gif')
 checkmark.penup()
 checkmark.goto(-250, 75)
 
-# define the xmark turtle 
+# define the xmark turtle
 xmark = turtle.Turtle()
 turtle.addshape('xmark.gif')
 xmark.shape('xmark.gif')
@@ -226,6 +237,18 @@ draw = turtle.Turtle()
 draw.hideturtle()
 draw.speed('fastest')
 draw.penup()
+
+# define the turtle object that is at the window
+windowguy = turtle.Turtle()
+turtle.addshape('windowstick.gif')
+windowguy.shape('windowstick.gif')
+windowguy.penup()
+
+# define the turtle object that swings
+swingguy = turtle.Turtle()
+turtle.addshape('swingguy.gif')
+swingguy.shape('swingguy.gif')
+swingguy.penup()
 
 # add an event to the checkmark
 checkmark.onclick(scene1)
