@@ -67,6 +67,7 @@ def scene1(x, y):
 
 def scene2():
     stall(5, 1000)
+    screen.tracer(0)
     screen.clear()
     draw.clear()
     screen.bgcolor('black')
@@ -80,6 +81,7 @@ def scene2():
     screen.bgcolor('#F0E68C')
     draw_floor('black')
     draw_exit()
+    setup_desk()
 
 # this function draws a floor
 
@@ -250,8 +252,24 @@ def draw_exit():
     draw.stamp()
     draw.penup()
 
-# MAIN
 
+def setup_desk():
+    desk.goto(-500, -100)
+    desk.stamp()
+    desk.hideturtle()
+    flipped_desk.goto(500, -100)
+    flipped_desk.stamp()
+    flipped_desk.hideturtle()
+    mainsitting.goto(-400, -100)
+    mainsitting.showturtle()
+    mainsitting.pendown()
+    other_guy.goto(400, -100)
+    other_guy.showturtle()
+    other_guy.pendown()
+    other_guy.stamp()
+
+
+# MAIN
 
 list = get_lines('lines.txt')
 
@@ -280,6 +298,7 @@ turtle.addshape('xmark.gif')
 xmark.shape('xmark.gif')
 xmark.penup()
 xmark.goto(250, 75)
+xmark.onclick(redo)
 
 # define the drawing turtle
 draw = turtle.Turtle()
@@ -300,6 +319,30 @@ turtle.addshape('swingguy.gif')
 swingguy.shape('swingguy.gif')
 swingguy.hideturtle()
 swingguy.penup()
+
+# define the turtle object that is a desk
+turtle.addshape('desk.gif')
+desk = turtle.Turtle(shape='desk.gif')
+desk.hideturtle()
+desk.penup()
+
+# define the turtle object that is our main character in scene 2
+turtle.addshape('desksitting.gif')
+mainsitting = turtle.Turtle(shape='desksitting.gif')
+mainsitting.hideturtle()
+mainsitting.penup()
+
+# define sitting other guy
+turtle.addshape('other_guy.gif')
+other_guy = turtle.Turtle(shape='other_guy.gif')
+other_guy.hideturtle()
+other_guy.penup()
+
+# define the flipped desk for scene 2
+turtle.addshape('flipped_desk.gif')
+flipped_desk = turtle.Turtle(shape='flipped_desk.gif')
+flipped_desk.hideturtle()
+flipped_desk.penup()
 
 # add an event to the checkmark
 checkmark.onclick(scene1)
