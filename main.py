@@ -199,18 +199,32 @@ def draw_outside_house():
     draw.end_fill()
 
 
+def rectangle(draw, width, height, color): 
+    draw.fillcolor(color)
+    draw.begin_fill()
+    draw.forward(width)
+    draw.left(90)
+    draw.forward(height)
+    draw.left(90)
+    draw.forward(width)
+    draw.left(90)
+    draw.forward(height)
+    draw.left(90)
+    draw.end_fill()
+    
+def triangle(draw, length, color):
+    draw.fillcolor(color)
+    draw.begin_fill()
+    draw.forward(length)
+    draw.left(135)
+    draw.forward(length / math.sqrt(2))
+    draw.left(90)
+    draw.forward(length / math.sqrt(2))
+    draw.left(135)
+    draw.end_fill()
+    
 def draw_tree(x, y):
-    draw.goto(x, y)
-    draw.fillcolor()
-    for i in range(4):
-        draw.begin_fill()
-        draw.forward(100)
-        draw.left(90)
-        draw.endfill()
-    for i in range(5):
-        draw.begin_fill()
-        draw.forward(100)
-        draw.cirlce(30, 55)
+    
 
 
 def draw_exit():
@@ -287,6 +301,27 @@ draw.hideturtle()
 draw.speed('fastest')
 draw.penup()
 
+tree = turtle.Turtle()
+tree.color('black')
+tree.shape('turtle')
+tree.speed('fastest')
+tree.penup()
+draw.goto(100, -130)
+tree.pendown()
+rectangle(tree, 20, 40, 'brown')
+tree.penup()
+tree.goto(65, -90)
+tree.pendown()
+triangle(tree, 90, 'green')
+tree.penup()
+tree.goto(70, -45)
+tree.pendown()
+triangle(tree, 80, 'green')
+tree.penup()
+tree.goto()
+
+
+
 # define the turtle object that is at the window
 windowguy = turtle.Turtle()
 turtle.addshape('windowstick.gif')
@@ -300,6 +335,7 @@ turtle.addshape('swingguy.gif')
 swingguy.shape('swingguy.gif')
 swingguy.hideturtle()
 swingguy.penup()
+
 
 # add an event to the checkmark
 checkmark.onclick(scene1)
