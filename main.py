@@ -80,9 +80,9 @@ def scene2():
     screen.tracer(0)
     text.clear()
     screen.bgcolor('#F0E68C')
-    draw_floor('black')
-    draw_exit()
-    setup_desk()
+    # draw_floor('black')
+    # draw_exit()
+    # setup_desk()
     mainsitting.showturtle()
     # define sitting other guy
     turtle.addshape('other_guy.gif')
@@ -99,25 +99,214 @@ def scene2():
     flipped_other.goto(400, -130)
     other_guy.showturtle()
     screen.tracer(1)
+    # stall(1,100)
+    # text_bubble('black', 'white', 400, 100, -350, 200)
+    # textbub.goto(-150, 230)
+    # textbub.write('Library', False, align='center', font=('Arial', 30))
+    # stall(1,500)
+    # textbub.clear()
+    # stall(1, 200)
+    # text_bubble('black', 'white', 400, 100, -350, 200)
+    # textbub.goto(-150, 230)
+    # textbub.write('Furious Typing...', False, align='center', font=('Arial', 30))
+    # stall(1,500)
+    # textbub.clear()
+    # library_interaction(other_guy, flipped_other)
+    # stall(1,400)
+    scene3(other_guy)
+
+
+def scene3(other_guy):
+    draw.clear()
+    mainsitting.hideturtle()
+    text.clear()
+    other_guy.hideturtle()
+    flipped_desk.clear()
+    desk.clear()
+    screen.bgcolor('black')
+    text.penup()
+    text.color('white')
+    text.goto(0, 250)
+    text.write('Scene 3', False, align='center', font=('Arial', 20))
+    stall(1, 700)
+    screen.tracer(0)
+    text.clear()
+    draw_box()
+    # create the chair turtle
+    turtle.addshape('chair.gif')
+    chair = turtle.Turtle(shape='chair.gif')
+    chair.penup()
+    chair.hideturtle()
+    # create the main guy turtle where he is reading
+    turtle.addshape('mainguy.gif')
+    reading = turtle.Turtle(shape='mainguy.gif')
+    reading.penup()
+    reading.hideturtle()
+    # create the standing turtle
+    turtle.addshape('standing.gif')
+    standing = turtle.Turtle(shape='standing.gif')
+    standing.penup()
+    standing.hideturtle()
+    # create phone turtle to indicate to open the terminal!
+    turtle.addshape('phone.gif')
+    phone = turtle.Turtle(shape='phone.gif')
+    phone.hideturtle()
+    phone.penup()
+    time = random.randint(1, 3)
+    if time == 1:
+        screen.bgcolor('skyblue')
+        draw_window('skyblue')
+        message = 'Home - Day'
+    elif time == 2:
+        screen.bgcolor('#502161')
+        draw_window('#502161')
+        message = 'Home - Sunset'
+    else:
+        screen.bgcolor('#f6652c')
+        draw_window('#f6652c')
+        message = 'Home - Night'
+    draw_floor('#2d180c')
+    draw_bed()
+    flipped_desk.goto(500, -100)
+    flipped_desk.stamp()
+    chair.goto(100, -170)
+    chair.stamp()
+    screen.tracer(1)
+    reading.goto(220, -140)
+    standing.goto(220, -140)
+    reading.showturtle()
     stall(1, 100)
-    text_bubble('black', 'white', 400, 100, -350, 200)
-    textbub.goto(-150, 230)
-    textbub.write('Library', False, align='center', font=('Arial', 30))
+    text_bubble('black', 'white', 400, 100, 0, 200)
+    textbub.goto(200, 230)
+    textbub.write(message, False, align='center', font=('Arial', 30))
     stall(1, 500)
     textbub.clear()
     stall(1, 200)
-    text_bubble('black', 'white', 400, 100, -350, 200)
-    textbub.goto(-150, 230)
-    textbub.write('Furious Typing...', False,
-                  align='center', font=('Arial', 30))
-    stall(1, 500)
+    text_bubble('black', 'white', 400, 100, 0, 200)
+    textbub.goto(220, 230)
+    textbub.write('Ahhh, I should rest..', False,
+                  align='center', font=('Arial', 24))
+    stall(1, 700)
     textbub.clear()
-    library_interaction(other_guy, flipped_other)
+    reading.hideturtle()
+    standing.showturtle()
+    stall(1, 300)
+    standing.goto(-200, -140)
+    stall(1, 200)
+    text_bubble('black', 'white', 600, 100, -75, 200)
+    textbub.goto(220, 230)
+    textbub.write('Should I give the studying a break?',
+                  False, align='center', font=('Arial', 24))
+    phone.goto(200, 0)
     stall(1, 400)
+    phone.stamp()
+    stall(1, 700)
+    answer = turtle.textinput('Should he rest?', 'Enter yes or no')
+    answer.lower()
+    stall(1, 200)
+    textbub.clear()
+    phone.clear()
+    if (answer == 'yes') or (answer == 'y'):
+        rest(standing, reading)
+    else:
+        grind(standing, reading)
+
+
+def grind(standing, reading):
+    text_bubble('black', 'white', 800, 100, -250, 200)
+    textbub.goto(150, 230)
+    textbub.write('Your right, I should keep on studying.',
+                  False, align='center', font=('Arial', 24))
+    stall(1, 700)
+    textbub.clear()
+    text_bubble('black', 'white', 800, 100, -250, 200)
+    textbub.goto(160, 250)
+    textbub.write('What would I even do anyways?', False,
+                  align='center', font=('Arial', 24))
+    textbub.goto(160, 170)
+    textbub.write(list[14], False, align='center', font=('Arial', 24))
+    stall(1, 1000)
+    textbub.clear()
+    standing.goto(220, -140)
+    stall(1, 350)
+    standing.hideturtle()
+    reading.showturtle()
+    stall(1, 300)
+    scene4()
+
+
+def rest(standing, reading):
+    text_bubble('black', 'white', 800, 100, -250, 200)
+    textbub.goto(150, 230)
+    textbub.write('I know you said yes, and the bed looks nice, but...',
+                  False, align='center', font=('Arial', 24))
+    stall(1, 700)
+    textbub.clear()
+    text_bubble('black', 'white', 800, 100, -250, 200)
+    textbub.goto(160, 220)
+    textbub.write(list[13], False, align='center', font=('Arial', 24))
+    textbub.goto(160, 170)
+    textbub.write(list[14], False, align='center', font=('Arial', 24))
+    stall(1, 600)
+    textbub.clear()
+    standing.goto(220, -140)
+    stall(1, 350)
+    standing.hideturtle()
+    reading.showturtle()
+    stall(1, 300)
+    scene4()
+
+
+def scene4():
+    pass
+
+
+def draw_window(color):
+    draw.penup()
+    draw.goto(-500, 100)
+    draw.fillcolor(color)
+    draw.width(10)
+    draw.pencolor('black')
+    draw.pendown()
+    draw.setheading(90)
+    draw.begin_fill()
+    for i in range(2):
+        draw.forward(200)
+        draw.right(90)
+        draw.forward(200)
+        draw.right(90)
+    draw.end_fill()
+    draw.penup()
+    draw.goto(-400, 100)
+    draw.pendown()
+    draw.forward(200)
+    draw.setheading(0)
+    draw.penup()
+    draw.goto(-500, 200)
+    draw.pendown()
+    draw.forward(200)
+    draw.penup()
+    draw.width(1)
+
+
+def draw_box():
+    draw.penup()
+    draw.goto(-600, -300)
+    draw.setheading(90)
+    draw.fillcolor('#c6ab85')
+    draw.pendown()
+    draw.pencolor('black')
+    draw.begin_fill()
+    for i in range(2):
+        draw.forward(700)
+        draw.right(90)
+        draw.forward(1200)
+        draw.right(90)
+    draw.end_fill()
+    draw.penup()
+
 
 # this function draws a floor
-
-
 def draw_floor(color):
     draw.showturtle()
     draw.penup()
@@ -415,6 +604,54 @@ def library_interaction(other_guy, flipped_other):
     other_guy.showturtle()
     other_guy.speed(1)
     other_guy.goto(400, -130)
+
+
+def draw_bed():
+    draw.penup()
+    draw.goto(-600, -300)
+    draw.setheading(90)
+    draw.pencolor('black')
+    draw.fillcolor('brown')
+    draw.begin_fill()
+    draw.pendown()
+    bedleg()
+    draw.end_fill()
+    draw.goto(-100, -300)
+    draw.pendown()
+    draw.begin_fill()
+    bedleg()
+    draw.end_fill()
+    draw.fillcolor('red')
+    draw.penup()
+    draw.goto(-600, -250)
+    draw.pendown()
+    draw.begin_fill()
+    for i in range(2):
+        draw.forward(150)
+        draw.right(90)
+        draw.forward(520)
+        draw.right(90)
+    draw.end_fill()
+    draw.fillcolor('white')
+    draw.penup()
+    draw.goto(-600, -100)
+    draw.pendown()
+    draw.begin_fill()
+    for i in range(2):
+        draw.forward(35)
+        draw.right(90)
+        draw.forward(150)
+        draw.right(90)
+    draw.end_fill()
+
+
+def bedleg():
+    for i in range(2):
+        draw.forward(50)
+        draw.right(90)
+        draw.forward(20)
+        draw.right(90)
+        draw.penup()
 
 
 # MAIN
