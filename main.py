@@ -16,6 +16,8 @@ import math
 
 # read the lines from the text file that I made that has each line for the project
 
+# this reads the file lines.txt and returns the lines back into the format of a list
+
 
 def get_lines(file_name):
     with open(file_name) as file:
@@ -65,6 +67,8 @@ def scene1(x, y):
     draw_tree()
     screen.tracer(1)
     scene2()
+
+# this is the scene 2 of the movie
 
 
 def scene2():
@@ -129,9 +133,9 @@ def scene3(other_guy):
     text.goto(0, 250)
     text.write('Scene 3', False, align='center', font=('Arial', 20))
     stall(1, 700)
-    screen.tracer(0)
-    text.clear()
-    draw_box()
+    # screen.tracer(0)
+    # text.clear()
+    # draw_box()
     # create the chair turtle
     turtle.addshape('chair.gif')
     chair = turtle.Turtle(shape='chair.gif')
@@ -152,64 +156,151 @@ def scene3(other_guy):
     phone = turtle.Turtle(shape='phone.gif')
     phone.hideturtle()
     phone.penup()
-    time = random.randint(1, 3)
-    if time == 1:
-        screen.bgcolor('skyblue')
-        draw_window('skyblue')
-        message = 'Home - Day'
-    elif time == 2:
-        screen.bgcolor('#502161')
-        draw_window('#502161')
-        message = 'Home - Sunset'
-    else:
-        screen.bgcolor('#f6652c')
-        draw_window('#f6652c')
-        message = 'Home - Night'
-    draw_floor('#2d180c')
-    draw_bed()
-    flipped_desk.goto(500, -100)
-    flipped_desk.stamp()
-    chair.goto(100, -170)
-    chair.stamp()
-    screen.tracer(1)
-    reading.goto(220, -140)
-    standing.goto(220, -140)
-    reading.showturtle()
-    stall(1, 100)
-    text_bubble('black', 'white', 400, 100, 0, 200)
-    textbub.goto(200, 230)
-    textbub.write(message, False, align='center', font=('Arial', 30))
-    stall(1, 500)
-    textbub.clear()
-    stall(1, 200)
-    text_bubble('black', 'white', 400, 100, 0, 200)
-    textbub.goto(220, 230)
-    textbub.write('Ahhh, I should rest..', False,
-                  align='center', font=('Arial', 24))
+    # time = random.randint(1,3)
+    # if time == 1:
+    #   screen.bgcolor('skyblue')
+    #   draw_window('skyblue')
+    #   message = 'Home - Day'
+    # elif time == 2:
+    #   screen.bgcolor('#502161')
+    #   draw_window('#502161')
+    #   message = 'Home - Sunset'
+    # else:
+    #   screen.bgcolor('#f6652c')
+    #   draw_window('#f6652c')
+    #   message = 'Home - Night'
+    # draw_floor('#2d180c')
+    # draw_bed()
+    # flipped_desk.goto(500, -100)
+    # flipped_desk.stamp()
+    # chair.goto(100, -170)
+    # chair.stamp()
+    # screen.tracer(1)
+    # reading.goto(220, -140)
+    # standing.goto(220, -140)
+    # reading.showturtle()
+    # stall(1,100)
+    # text_bubble('black', 'white', 400, 100, 0, 200)
+    # textbub.goto(200, 230)
+    # textbub.write(message, False, align='center', font=('Arial', 30))
+    # stall(1,500)
+    # textbub.clear()
+    # stall(1, 200)
+    # text_bubble('black', 'white', 400, 100, 0, 200)
+    # textbub.goto(220, 230)
+    # textbub.write('Ahhh, I should rest..', False, align='center', font=('Arial', 24))
+    # stall(1,700)
+    # textbub.clear()
+    # reading.hideturtle()
+    # standing.showturtle()
+    # stall(1,300)
+    # standing.goto(-200, -140)
+    # stall(1, 200)
+    # text_bubble('black', 'white', 600, 100, -75, 200)
+    # textbub.goto(220, 230)
+    # textbub.write('Should I give the studying a break?', False, align='center', font=('Arial', 24))
+    # phone.goto(200,0)
+    # stall(1,400)
+    # phone.stamp()
+    # stall(1,700)
+    # answer = turtle.textinput('Should he rest?', 'Enter yes or no')
+    # answer.lower()
+    # stall(1,200)
+    # textbub.clear()
+    # phone.clear()
+    # if (answer == 'yes') or (answer == 'y'):
+    #   rest(standing, reading)
+    # else:
+    #   grind(standing, reading)
+    # text_bubble('black', 'white', 600, 100, -75, 200)
+    # textbub.goto(220, 230)
+    # textbub.write('what the heck is bubble sort...', False, align='center', font=('Arial', 16))
+    scene4(chair, reading)
+
+
+def scene4(chair, reading):
     stall(1, 700)
-    textbub.clear()
+    screen.clear()
+    flipped_desk.clear()
+    draw.clear()
+    chair.clear()
     reading.hideturtle()
-    standing.showturtle()
-    stall(1, 300)
-    standing.goto(-200, -140)
-    stall(1, 200)
-    text_bubble('black', 'white', 600, 100, -75, 200)
-    textbub.goto(220, 230)
-    textbub.write('Should I give the studying a break?',
-                  False, align='center', font=('Arial', 24))
-    phone.goto(200, 0)
-    stall(1, 400)
-    phone.stamp()
-    stall(1, 700)
-    answer = turtle.textinput('Should he rest?', 'Enter yes or no')
-    answer.lower()
-    stall(1, 200)
     textbub.clear()
-    phone.clear()
+    screen.bgcolor('black')
+    text.penup()
+    text.color('white')
+    text.goto(0, 250)
+    text.write('Scene 4', False, align='center', font=('Arial', 20))
+    stall(1, 700)
+    screen.tracer(0)
+    text.clear()
+    # define the house turtle
+    turtle.addshape('house.gif')
+    house = turtle.Turtle(shape='house.gif')
+    house.hideturtle()
+    house.penup()
+    screen.bgcolor('skyblue')
+    draw_floor('#3e931f')
+    # define the old man character turtle
+    turtle.addshape('old.gif')
+    oldman = turtle.Turtle(shape='old.gif')
+    oldman.hideturtle()
+    oldman.penup()
+    oldman.goto(-500, -160)
+    oldman.showturtle()
+    house.goto(730, -45)
+    house.showturtle()
+    house.stamp()
+    draw.penup()
+    draw.goto(-800, 400)
+    draw.fillcolor('yellow')
+    draw.begin_fill()
+    draw.circle(100)
+    draw.end_fill()
+    text_bubble('black', 'white', 600, 100, -450, 200)
+    textbub.goto(-140, 180)
+    textbub.write(list[15], False, align='center', font=('Arial', 30))
+    stall(1, 700)
+    oldman.speed(1)
+    oldman.goto(-80, -160)
+    textbub.clear()
+    text_bubble('black', 'white', 600, 100, -450, 200)
+    textbub.goto(-160, 180)
+    textbub.write(list[16], False, align='center', font=('Arial', 30))
+    stall(1, 700)
+    text_bubble('black', 'white', 950, 100, -750, 50)
+    textbub.goto(-260, 40)
+    textbub.write(list[17], False, align='center', font=('Arial', 30))
+    stall(1, 600)
+    textbub.goto(-260, 0)
+    textbub.write(list[18], False, align='center', font=('Arial', 30))
+    stall(1, 600)
+    text_bubble('black', 'white', 200, 70, -380, -50)
+    textbub.goto(-260, -105)
+    textbub.write(list[19], False, align='center', font=('Arial', 35))
+    stall(1, 700)
+    textbub.clear()
+    draw.clear()
+    oldman.hideturtle()
+    house.clear()
+    house.hideturtle()
+    screen.bgcolor('black')
+    text.penup()
+    text.color('white')
+    text.goto(0, 150)
+    text.write(list[20], False, align='center', font=('Arial', 50))
+    stall(1, 1000)
+    text.clear()
+    text.goto(0, 0)
+    text.write('The End', False, align='center', font=('Arial', 80))
+    stall(1, 300)
+    answer = turtle.textinput('Rewatch?', 'Enter yes or no')
+    answer.lower()
+    stall(1, 400)
     if (answer == 'yes') or (answer == 'y'):
-        rest(standing, reading)
+        scene1(0, 0)
     else:
-        grind(standing, reading)
+        pass
 
 
 def grind(standing, reading):
@@ -232,7 +323,6 @@ def grind(standing, reading):
     standing.hideturtle()
     reading.showturtle()
     stall(1, 300)
-    scene4()
 
 
 def rest(standing, reading):
@@ -254,11 +344,6 @@ def rest(standing, reading):
     standing.hideturtle()
     reading.showturtle()
     stall(1, 300)
-    scene4()
-
-
-def scene4():
-    pass
 
 
 def draw_window(color):
@@ -313,7 +398,7 @@ def draw_floor(color):
     draw.goto(-600, -300)
     draw.setheading(90)
     draw.pencolor('black')
-    draw.fillcolor('#8B4513')
+    draw.fillcolor(color)
     draw.pendown()
     draw.begin_fill()
     for i in range(2):
